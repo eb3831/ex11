@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,28 +76,38 @@ public class MainActivity extends AppCompatActivity {
     {
 
         String st1 = et1.getText().toString();
-        answer1 = Integer.parseInt(st1);
 
-        iv1.setVisibility(View.VISIBLE);
-
-        if (sum1==answer1)
+        if (st1.isEmpty())
         {
-            count++;
-            iv1.setImageResource(R.drawable.v);
+            Toast.makeText(this, "you need to enter the answer", Toast.LENGTH_SHORT).show();
         }
+
         else
         {
-            iv1.setImageResource(R.drawable.x);
+            answer1 = Integer.parseInt(st1);
+
+            iv1.setVisibility(View.VISIBLE);
+
+            if (sum1==answer1)
+            {
+                count++;
+                iv1.setImageResource(R.drawable.v);
+            }
+            else
+            {
+                iv1.setImageResource(R.drawable.x);
+            }
+
+            tv3.setText(""+sum1);
+            tv4.setText(""+n4);
+
+            tv3.setVisibility(View.VISIBLE);
+            tv4.setVisibility(View.VISIBLE);
+
+            et2.setVisibility(View.VISIBLE);
+            btn2.setVisibility(View.VISIBLE);
+
         }
-
-        tv3.setText(""+sum1);
-        tv4.setText(""+n4);
-
-        tv3.setVisibility(View.VISIBLE);
-        tv4.setVisibility(View.VISIBLE);
-
-        et2.setVisibility(View.VISIBLE);
-        btn2.setVisibility(View.VISIBLE);
 
     }
 
@@ -104,28 +116,39 @@ public class MainActivity extends AppCompatActivity {
     {
 
         String st2 = et2.getText().toString();
-        answer2 = Integer.parseInt(st2);
 
-        iv2.setVisibility(View.VISIBLE);
-
-        if (sum2==answer2)
+        if (st2.isEmpty())
         {
-            count++;
-            iv2.setImageResource(R.drawable.v);
+            Toast.makeText(this, "you need to enter the answer", Toast.LENGTH_SHORT).show();
+
         }
+
         else
         {
-            iv2.setImageResource(R.drawable.x);
+            answer2 = Integer.parseInt(st2);
+
+            iv2.setVisibility(View.VISIBLE);
+
+            if (sum2==answer2)
+            {
+                count++;
+                iv2.setImageResource(R.drawable.v);
+            }
+            else
+            {
+                iv2.setImageResource(R.drawable.x);
+            }
+
+            tv5.setText(""+sum2);
+            tv6.setText(""+n6);
+
+            tv5.setVisibility(View.VISIBLE);
+            tv6.setVisibility(View.VISIBLE);
+
+            et3.setVisibility(View.VISIBLE);
+            btn3.setVisibility(View.VISIBLE);
+
         }
-
-        tv5.setText(""+sum2);
-        tv6.setText(""+n6);
-
-        tv5.setVisibility(View.VISIBLE);
-        tv6.setVisibility(View.VISIBLE);
-
-        et3.setVisibility(View.VISIBLE);
-        btn3.setVisibility(View.VISIBLE);
 
     }
 
@@ -134,35 +157,50 @@ public class MainActivity extends AppCompatActivity {
     {
 
         String st3 = et3.getText().toString();
-        answer3 = Integer.parseInt(st3);
 
-        iv3.setVisibility(View.VISIBLE);
-
-        if (sum3==answer3)
+        if (st3.isEmpty())
         {
-            count++;
-            iv3.setImageResource(R.drawable.v);
+            Toast.makeText(this, "you need to enter the answer", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            iv3.setImageResource(R.drawable.x);
+            answer3 = Integer.parseInt(st3);
+
+            iv3.setVisibility(View.VISIBLE);
+
+            if (sum3==answer3)
+            {
+                count++;
+                iv3.setImageResource(R.drawable.v);
+            }
+            else
+            {
+                iv3.setImageResource(R.drawable.x);
+            }
+
+            btn4.setVisibility(View.VISIBLE);
+
+            switch(count)
+            {
+                case 0:
+                    String result1 = "your score is: 0/3, 0%" ;
+                    Toast.makeText(this, result1, Toast.LENGTH_LONG).show();
+                    break;
+                case 1:
+                    String result2 = "your score is: 1/3, 33%";
+                    Toast.makeText(this, result2, Toast.LENGTH_LONG).show();
+                    break;
+                case 2:
+                    String result3 = "your score is: 2/3, 66%";
+                    Toast.makeText(this, result3, Toast.LENGTH_LONG).show();
+                    break;
+                case 3:
+                    String result4 = "your score is: 3/3, 100%";
+                    Toast.makeText(this, result4, Toast.LENGTH_LONG).show();
+                    break;
+            }
+
         }
-
-        btn4.setVisibility(View.VISIBLE);
-
-        switch(count)
-        {
-            case 0: btn4.setText("your score: 0/3, 0%");
-                break;
-            case 1: btn4.setText("your score: 1/3, 33%");
-                break;
-            case 2: btn4.setText("your score: 2/3, 66%");
-                break;
-            case 3: btn4.setText("your score: 3/3, 100%");
-                break;
-        }
-
-
 
     }
 
